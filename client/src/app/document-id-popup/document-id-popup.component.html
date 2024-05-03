@@ -1,0 +1,18 @@
+<div class="popup">
+    <div class="popup-content">
+        <h2>Login with Existing Document ID</h2>
+        <form (ngSubmit)="submitDocumentId()">
+            <ng-container *ngIf="!isNewDocument; else elseBlock"> <!-- Check if documentId is available -->
+                <label for="documentId">Enter Document ID:</label>
+                <input type="text" id="documentId" name="documentId">
+                <button type="submit">Open</button>
+            </ng-container>
+            <ng-template #elseBlock>
+                <label for="documentId">Document ID:</label>
+                {{ documentId }} <!-- Display the documentId -->
+                <button type="submit">Open</button>
+            </ng-template>
+        </form>
+    </div>
+</div>
+<div class="overlay" (click)="close.emit(false)"></div>
