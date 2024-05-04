@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-home',
@@ -15,13 +16,13 @@ export class HomeComponent {
     this.showDocumentIdPopup = true;
   }
 
-  openDocumentPopUp(){
+  openExistingDocument(){
     this.isNewDocument = false;
     this.openDocumentIdPopup();
   }
 
-  generateDocumentKey() {
-    this.documentId = 'jhadgfkjhdabvfkbdakfb'; 
+  generateNewDocumentId() {
+    this.documentId = uuidv4(); 
     this.isNewDocument = true;
     this.openDocumentIdPopup(); 
   }

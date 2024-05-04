@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-document-id-popup',
@@ -11,7 +12,15 @@ export class DocumentIdPopupComponent {
   @Input() documentId: any; 
   @Input() isNewDocument: boolean = true;
 
+  constructor(private router:Router) { }
+  
+
   submitDocumentId() {
     this.close.emit(true); // Close the popup
+  }
+
+  openDocument(formValue: any) {
+    console.log(formValue.documentId);
+    this.router.navigate(['/document'], { queryParams: { documentId: formValue.documentId } });
   }
 }

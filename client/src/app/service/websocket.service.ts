@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Stomp, StompSubscription } from '@stomp/stompjs';
 import * as SockJS from 'sockjs-client';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +10,8 @@ export class WebsocketService {
     private connection: any;
 
     private subscription: StompSubscription | undefined;
-    public content: string = "";
+    private _content = new BehaviorSubject<any>(null);
+    public content$ = this._content.asObservable();
 
     constructor() {
         this.initializeWebSocketConnection();
@@ -34,7 +36,7 @@ export class WebsocketService {
         const jsonData = {
             content: data
         };
-        if (this.connection && this.connection.connected) {
+        if (this.connection?.connected) {
             this.connection.send(path, {}, JSON.stringify(jsonData));
         } else {
             console.error('WebSocket connection is not established or disconnected.');
@@ -43,11 +45,10 @@ export class WebsocketService {
 
     public listen(documentId: string): void {
         const path = '/topic/' +  documentId
-        if (this.connection && this.connection.connected) {
+        if (this.connection?.connected) {
             this.connection.subscribe(path, (data: any) => {
-                //console.log(data.body);
                 let body = JSON.parse(data.body)
-                this.content = body.content;
+                this._content.next(body.content);
             }, (error: any) => {
                 console.error('WebSocket connection error:', error);
             })

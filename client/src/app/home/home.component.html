@@ -1,13 +1,13 @@
 <body>
     <div class="container">
-        <h1>Welcome to Document Manager</h1>
-        <form action="#">
+        <h1>Welcome to CoWrite</h1>
+        <form>
             <div class="options">
-                <button type="submit" class="option" (click)="generateDocumentKey()">New Document</button>
+                <button type="submit" class="option" (click)="generateNewDocumentId()">New Document</button>
             </div>
             <div class="or">OR</div>
             <div class="options">
-                <button type="button" class="option" (click)="openDocumentIdPopup()">Open Existing Document</button>
+                <button type="button" class="option" (click)="openExistingDocument()">Open Existing Document</button>
             </div>
             <app-document-id-popup *ngIf="showDocumentIdPopup" [isNewDocument]="isNewDocument" [documentId]="documentId" (close)="closeDocumentIdPopup($event)"></app-document-id-popup>
         </form>

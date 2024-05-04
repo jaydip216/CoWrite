@@ -2,7 +2,8 @@
     <div class="row">
       <div class="col-md-12">
         <quill-editor 
-          style="height: 200px; padding: 10%;"
+        class="quill-editor"
+        [(ngModel)]="response"
           (onEditorChanged)="onEditorChanged($event)"
           >
         </quill-editor>

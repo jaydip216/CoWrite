@@ -6,6 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { DocumentComponent } from './document/document.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DocumentIdPopupComponent } from './document-id-popup/document-id-popup.component';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { DocumentIdPopupComponent } from './document-id-popup/document-id-popup.
   imports: [
     BrowserModule,
     QuillModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

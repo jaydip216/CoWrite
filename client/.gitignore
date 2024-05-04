@@ -1,11 +1,3 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
-
 # Node
 /node_modules
 npm-debug.log
@@ -28,15 +20,18 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
-# Miscellaneous
+# Angular
+/dist/
+/tmp/
+/out-tsc/
+/src/**/*.spec.ts
+/src/**/*.map
+/src/assets/env.js
 /.angular/cache
+
+# Miscellaneous
 .sass-cache/
 /connect.lock
 /coverage
 /libpeerconnection.log
 testem.log
-/typings
-
-# System files
-.DS_Store
-Thumbs.db
