@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="document-header">
+    <div class="document-id">
+      Document ID: <strong>{{ documentId }}</strong>
+      <button class="copy-button" (click)="copyUrl()" title="Copy URL">
+        📋 Copy
+      </button>
+    </div>
+  </div>
+  
+  <textarea
+    class="editor"
+    [(ngModel)]="content"
+    (ngModelChange)="onContentChange($event)"
+    placeholder="Start typing..."
+    spellcheck="true"
+  ></textarea>
+</div>

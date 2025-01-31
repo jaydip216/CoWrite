@@ -1,0 +1,16 @@
+{
+  "name": "websocket-server",
+  "version": "1.0.0",
+  "description": "A WebSocket server for real-time document collaboration.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.0.0",
+    "mongoose": "^5.10.9"
+  },
+  "author": "",
+  "license": "ISC"
+}

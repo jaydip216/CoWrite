@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="logo">
+    <h1>Co Write</h1>
+  </div>
+  
+  <div class="options">
+    <button class="button" (click)="createNewDocument()">
+      Create New Document
+    </button>
+    <button class="button" (click)="showJoinForm = true">
+      Join Existing Document
+    </button>
+  </div>
+
+  <div *ngIf="showJoinForm" class="join-form">
+    <input
+      type="text"
+      [(ngModel)]="documentId"
+      placeholder="Enter Document ID"
+      class="input-field"
+      (keyup.enter)="joinDocument()"
+    />
+    <button class="button" (click)="joinDocument()">
+      Join Document
+    </button>
+  </div>
+</div>
